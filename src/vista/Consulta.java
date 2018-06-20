@@ -108,6 +108,7 @@ public class Consulta extends JFrame{
         
         codigo.setBounds(140, 10, ANCHOC, ALTOC);
         marca.setBounds(140, 60, ANCHOC, ALTOC);
+        stock.setBounds(140, 140, ANCHOC, ALTOC);
         si.setBounds(140,140,50,ALTOC);
         no.setBounds(210,140,50,ALTOC);
         
@@ -144,12 +145,13 @@ public class Consulta extends JFrame{
         tm.addColumn("Marca");
         tm.addColumn("Stock");
         tm.addColumn("Stock en Sucursal");
+        tm.addColumn("Propiedad");
         
         FiltroDao fd = new FiltroDao();
         ArrayList<Filtro> filtros = fd.readall();
         
         for (Filtro fi : filtros){
-            tm.addRow(new Object[]{fi.getCodigo(),fi.getMarca(),fi.getStock(),fi.isExistencia()});
+            tm.addRow(new Object[]{fi.getCodigo(),fi.getMarca(),fi.getStock(),fi.isExistencia(),fi.isPropiedad()});
         }
         
         resultados.setModel(tm);
@@ -161,7 +163,7 @@ public class Consulta extends JFrame{
             public void actionPerformed(ActionEvent e){
                 FiltroDao fd = new FiltroDao();
                 Filtro f = new Filtro(codigo.getText(),marca.getSelectedItem().toString(),
-                Integer.parseInt(stock.getText()),true);
+                Integer.parseInt(stock.getText()),true,true);
                 
                 if(no.isSelected()){
                     f.setExistencia(false);
@@ -183,7 +185,7 @@ public class Consulta extends JFrame{
             public void actionPerformed(ActionEvent e){
                 FiltroDao fd = new FiltroDao();
                 Filtro f = new Filtro(codigo.getText(),marca.getSelectedItem().toString(),
-                Integer.parseInt(stock.getText()),true);
+                Integer.parseInt(stock.getText()),true,true);
                 
                 if(no.isSelected()){
                     f.setExistencia(false);
@@ -248,14 +250,6 @@ public class Consulta extends JFrame{
         stock.setText("");
     }
     
-    public static void main(String[] args){
-        java.awt.EventQueue.invokeLater(new Runnable(){
-            @Override
-            public void run(){
-                new Consulta().setVisible(true);
-            }
-            
-        });
-    }
+
     
 }

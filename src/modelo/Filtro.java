@@ -12,30 +12,44 @@ public class Filtro {
     private String marca;
     private int stock;
     private boolean existencia;
+    private boolean propiedad;
     
     public Filtro(){
         
     }
 
-    public Filtro(int id, String codigo, String marca, int stock, boolean existencia) {
+    public boolean isPropiedad() {
+        return propiedad;
+    }
+
+    public void setPropiedad(boolean propiedad) {
+        this.propiedad = propiedad;
+    }
+    
+    
+
+    public Filtro(int id, String codigo, String marca, int stock, boolean existencia, boolean propiedad) {
         this.id = id;
         this.codigo = codigo;
         this.marca = marca;
         this.stock = stock;
         this.existencia = existencia;
+        this.propiedad = propiedad;
     }
 
-    public Filtro(String codigo, String marca, int stock, boolean existencia) {
+    public Filtro(String codigo, String marca, int stock, boolean existencia, boolean propiedad) {
         this.codigo = codigo;
         this.marca = marca;
         this.stock = stock;
         this.existencia = existencia;
+        this.propiedad = propiedad;
     }
 
-    public Filtro(String marca, int stock, boolean existencia) {
+    public Filtro(String marca, int stock, boolean existencia, boolean propiedad) {
         this.marca = marca;
         this.stock = stock;
         this.existencia = existencia;
+        this.propiedad = propiedad;
     }
 
     public int getId() {

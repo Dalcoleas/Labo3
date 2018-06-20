@@ -42,7 +42,7 @@ public class Conexion {
     
     private void cargarCredenciales(){
         user = "root";
-        pass= "";
+        pass= "jogabonito96";
         driver = "com.mysql.jdbc.Driver";
         url = "jdbc:mysql://localhost/filtros";
     }
